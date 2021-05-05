@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Savedlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @savedlists.each do |savedlist| %>
+      <tr>
+        <td><%= link_to 'Show', savedlist %></td>
+        <td><%= link_to 'Edit', edit_savedlist_path(savedlist) %></td>
+        <td><%= link_to 'Destroy', savedlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Savedlist', new_savedlist_path %>

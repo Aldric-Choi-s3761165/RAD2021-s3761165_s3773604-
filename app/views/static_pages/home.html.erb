@@ -1,0 +1,43 @@
+<% provide(:title, "Home") %>
+<h1>Choi-Pham Clothing</h1>
+<p>This is the home page for RAD assigment.</p>
+
+<h2>Top Banner</h2>
+<p> <%= image_tag @product.imagelink, height:'300' %></p>
+<p>Item: <%= @product.name %>, Price: <%= @product.price %> </p>
+
+<h2>Popular</h2>
+<table>
+  <tbody>
+    <% @products.each do |p| %>
+      <% if p.popularity > 5 %> 
+      <td>
+        <p> <%= image_tag p.imagelink, height:'300' %></p>
+        <p>Item: <%= p.name %>, Price: <%= p.price %> </p> 
+      </td>
+      <% end %>
+    <% end %>
+  </tbody> 
+</table> 
+
+<h2>Collections</h2> 
+<table>
+  <thead>
+    <tr>
+      <th>Collection name</th>
+      <th> Products </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collections.each do |collection| %>
+      <tr>
+        <td><%= link_to collection.name , collection %></td>
+        <td> <%= collection.products.count%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2> Newsletter </h2>
