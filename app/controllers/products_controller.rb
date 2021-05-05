@@ -55,6 +55,47 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def product_params
+    params.require(:product).permit(:name, :price, :popularity, :favorite, :imagelink)
+  end
+  
+  # def savedlists
+  #   @product = Product.find(params[:id]) 
+  #   @savedlists = @product.savedlists
+  # end 
+  
+  # def save
+  #   #Convert ids from routing to objects 
+  #   @product = Product.find(params[:id])
+  #   @savedlist = Savedlist.find(params[:course])
+  #   unless @product.saved_in?(@course) 
+  #     #add course to list using << operator 
+  #     @product.savedlists<< @savedlist 
+  #     flash[:notice] = 'Product was successfully saved' 
+  #   else 
+  #     flash[:error] = 'Product was already saved' 
+  #   end 
+  #   redirect_to action: "savedlists", id: @product 
+  # end
+  
+  # def unsave
+  #   #Convert ids from routing to object 
+  #   @product = Product.find(params[:id]) 
+  #   #get list of courses to remove from query string
+  #   savedlist_ids= params[:savedlists] 
+  #   if savedlist_ids.any? 
+  #     savedlist_ids.each do |savedlist_id| 
+  #       savedlist = Savedlist.find(savedlist_id) 
+  #       if @product.saved_in?(savedlist)
+  #         logger.info"Removing product from saved list #{savedlist.id}" 
+  #         @product.savedlists.delete(savedlist) 
+  #         flash[:notice] = 'Saved list was successfully deleted'
+  #       end
+  #     end
+  #   end
+  #   redirect_to action: "savedlists", id: @product 
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

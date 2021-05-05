@@ -1,0 +1,16 @@
+<% provide(:title, "Saved List") %>
+
+<h1>Saved List</h1>
+
+<table>
+  <tbody>
+    <% @products.each do |p| %>
+      <% if p.favorite == true %> 
+      <td>
+        <p> <%= image_tag p.imagelink, height:'300' %></p>
+        <p><%= toggle_favorite(p) %>Item: <%= p.name %>, Price: <%= p.price %> </p> 
+      </td>
+      <% end %>
+    <% end %>
+  </tbody> 
+</table> 

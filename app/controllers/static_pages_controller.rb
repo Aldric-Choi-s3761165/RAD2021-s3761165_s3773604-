@@ -7,5 +7,9 @@ class StaticPagesController < ApplicationController
 
   def helpandsupport
   end
+  
+  def savedlist
+    @products = Product.all
+  end
 end
 

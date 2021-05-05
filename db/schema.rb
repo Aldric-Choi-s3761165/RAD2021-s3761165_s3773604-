@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210505015605) do
+ActiveRecord::Schema.define(version: 20210505111058) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
@@ -30,16 +30,7 @@ ActiveRecord::Schema.define(version: 20210505015605) do
     t.string "imagelink"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "savedlist_products", force: :cascade do |t|
-    t.integer "savedlist_id", null: false
-    t.integer "product_id", null: false
-  end
-
-  create_table "savedlists", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean "favorite", default: false
   end
 
 end

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :savedlists
   resources :products
   resources :collections
-  get 'static_pages/home'
+  resources :favorites, only: [:create, :destroy]
 
-  get 'static_pages/helpandsupport'
+  get 'static_pages/home'
+  
+  get '/helpandsupport', to: 'static_pages#helpandsupport'
+  get '/savedlist', to: 'static_pages#savedlist'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'application#hello'

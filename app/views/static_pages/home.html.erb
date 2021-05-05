@@ -4,7 +4,7 @@
 
 <h2>Top Banner</h2>
 <p> <%= image_tag @product.imagelink, height:'300' %></p>
-<p>Item: <%= @product.name %>, Price: <%= @product.price %> </p>
+<%= render 'product', product: @product %>
 
 <h2>Popular</h2>
 <table>
@@ -13,7 +13,7 @@
       <% if p.popularity > 5 %> 
       <td>
         <p> <%= image_tag p.imagelink, height:'300' %></p>
-        <p>Item: <%= p.name %>, Price: <%= p.price %> </p> 
+        <%= render 'product', product: p %>
       </td>
       <% end %>
     <% end %>
