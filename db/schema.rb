@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210505111058) do
+ActiveRecord::Schema.define(version: 20210506054608) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20210505111058) do
   create_table "collections_products", force: :cascade do |t|
     t.integer "collection_id", null: false
     t.integer "product_id", null: false
+  end
+
+  create_table "newsletters", force: :cascade do |t|
+    t.string "email"
+    t.boolean "subscribe", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_newsletters_on_email", unique: true
   end
 
   create_table "products", force: :cascade do |t|
