@@ -7,6 +7,7 @@ class NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
     if @newsletter.save
+      NewsletterNotifierMailer.send_subscribe_email(@newsletter).deliver_now
       redirect_to "/"
     else
       loadhomepagedata

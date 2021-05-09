@@ -9,5 +9,6 @@ class ApplicationController < ActionController::Base
         @product = Product.where(favorite:false).sample
         @products = Product.all
         @collections = Collection.all
+        @popular = Product.order(popularity: :desc)
       end
 end

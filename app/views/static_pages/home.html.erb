@@ -10,7 +10,7 @@
 <h2>Popular</h2>
 <table>
   <tbody>
-      <% @products.each do |p| %>
+      <% @popular.each do |p| %>
         <% if p.popularity > 5 %> 
         <td>
           <%= render 'products/product', product: p %>
