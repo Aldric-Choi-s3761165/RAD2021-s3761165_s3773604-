@@ -31,6 +31,7 @@
   </thead>
 
   <tbody>
+    <td><%= link_to "All" , '/allproducts' %></td>
     <% @collections.each do |collection| %>
       <tr>
         <td><%= link_to collection.name , collection %></td>
