@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/', to: 'newsletters#create'
   # get '/', to 'newsletter#new'
   
-  get '/allproducts', to: 'products#products'
+  get '/allproducts', to: 'products#products', as: 'all_products'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'application#hello'
