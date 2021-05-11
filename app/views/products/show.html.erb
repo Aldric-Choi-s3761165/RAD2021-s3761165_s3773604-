@@ -18,6 +18,15 @@
   </table>
 </p>
 
+<div class="content">
+    <div class="slickslide" slick="">
+        <div class="image-div"> <%= image_tag @product.imagelink, height:'300' %></div>
+      <% @product.photos.each do |photo| %>
+        <div class="image-div"><%= image_tag photo.image, height:'300' %></div>
+      <% end %>
+    </div>
+</div>
+
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
