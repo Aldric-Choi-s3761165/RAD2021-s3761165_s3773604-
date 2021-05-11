@@ -2,23 +2,20 @@
 
 <h2>Top Banner</h2>
 <% if @product != nil %> 
-  <%= render 'products/product', product: @product %>
+  <div class="item-tag"><%= render 'products/product', product: @product %></div>
 <% else %> 
-  <p>All products already saved.</p>
+  <div class="item-tag">All products already saved.</div>
 <% end %>
 
 <h2>Popular</h2>
-<table>
-  <tbody>
-      <% @popular.each do |p| %>
-        <% if p.popularity > 5 %> 
-        <td>
-          <%= render 'products/product', product: p %>
-        </td>
-        <% end %>
-      <% end %>
-  </tbody> 
-</table> 
+
+<div class="slickslide4" slick="">
+  <% @popular.each do |p| %>
+    <% if p.popularity > 5 %> 
+      <div class="item-tag"><%= render 'products/product', product: p %></div>
+    <% end %>
+  <% end %>
+</div>
 
 <h2>Collections</h2> 
 <table>

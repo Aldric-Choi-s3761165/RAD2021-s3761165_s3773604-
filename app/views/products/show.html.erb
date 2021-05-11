@@ -1,23 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <h1> Product name: <%= @product.name%> </h1>
-  <table>
-    <tbody>
-      <td>
-        <p> <%= image_tag @product.imagelink, height:'300' %></p>
-      </td>
-      <% @product.photos.each do |photo| %>
-      <td>
-        <p><%= image_tag photo.image, height:'300' %></p>
-      </td>
-      <% end %>
-      
-      <p><%= toggle_favorite(@product) %> Item: <%= @product.name %> Price: <%= @product.price %></p>
-    </tbody> 
-  </table>
-</p>
-
+<h1></h1>
 <div class="content">
     <div class="slickslide" slick="">
         <div class="image-div"> <%= image_tag @product.imagelink, height:'300' %></div>
@@ -26,6 +9,10 @@
       <% end %>
     </div>
 </div>
+
+<h1> Product name: <%= @product.name%> </h1>
+<p><%= toggle_favorite(@product) %> Item: <%= @product.name %> Price: <%= @product.price %></p>
+
 
 <p>
   <strong>Name:</strong>
