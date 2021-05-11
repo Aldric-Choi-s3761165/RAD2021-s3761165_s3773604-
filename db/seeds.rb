@@ -21,3 +21,7 @@ collection1.products << product4
 collection3.products << product4
 collection4.products << product3
 collection2.products << product2
+
+product1.photos.create(image: 'https://img.ltwebstatic.com/images3_pi/2020/11/30/160670329606c3de9a050654c5037e5cc0522ba92e_thumbnail_900x.webp')
+product1.photos.create(image: 'https://img.ltwebstatic.com/images3_pi/2020/11/30/160670329606c3de9a050654c5037e5cc0522ba92e_thumbnail_900x.webp')
+product1.photos.create(image: 'https://img.ltwebstatic.com/images3_pi/2020/11/30/160670329606c3de9a050654c5037e5cc0522ba92e_thumbnail_900x.webp')

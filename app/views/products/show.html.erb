@@ -1,6 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <h1> Product name: <%= @product.name%> </h1>
+  <table>
+    <tbody>
+      <td>
+        <p> <%= image_tag @product.imagelink, height:'300' %></p>
+      </td>
+      <% @product.photos.each do |photo| %>
+      <td>
+        <p><%= image_tag photo.image, height:'300' %></p>
+      </td>
+      <% end %>
+      
+      <p><%= toggle_favorite(@product) %> Item: <%= @product.name %> Price: <%= @product.price %></p>
+    </tbody> 
+  </table>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
