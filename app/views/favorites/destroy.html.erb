@@ -1,7 +1,0 @@
-<script type="text/javascript">
-    let starIcon = document.querySelector("#product_<%= @product.id %>").querySelector('.fa-star')
-    
-    starIcon.parentElement.outerHTML = "<%= escape_javascript(toggle_favorite(@product)) %>"
-</script>
-
-<script type="text/javascript" src="/assets//javascripts/lib/destroy.js"></script>
