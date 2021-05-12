@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210505111058) do
+ActiveRecord::Schema.define(version: 20210512113151) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 20210505111058) do
     t.integer "product_id", null: false
   end
 
+  create_table "newsletters", force: :cascade do |t|
+    t.string "email"
+    t.boolean "subscribe", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_newsletters_on_email", unique: true
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "image"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_photos_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -31,6 +47,14 @@ ActiveRecord::Schema.define(version: 20210505111058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "favorite", default: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

@@ -1,0 +1,14 @@
+<% if @newsletter.errors.any?%>
+    <div id="error_messages">
+        <div class="alert alert-danger">
+            The form contains <%= pluralize(@newsletter.errors.count, "error") %>.
+        </div>
+        <ul>
+        <% @newsletter.errors.full_messages.each do |message| %>
+            <li><%= message%></li>
+        <% end %>
+        </ul>
+    </div>
+<% else %>
+    <div> You are now subscribed!</div>
+<% end %>

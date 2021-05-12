@@ -1,5 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<h1></h1>
+<div class="content">
+    <div class="slickslide" slick="">
+        <div class="image-div"> <%= image_tag @product.imagelink, height:'300' %></div>
+      <% @product.photos.each do |photo| %>
+        <div class="image-div"><%= image_tag photo.image, height:'300' %></div>
+      <% end %>
+    </div>
+</div>
+
+<h1> Product name: <%= @product.name%> </h1>
+<p><%= toggle_favorite(@product) %> Item: <%= @product.name %> Price: <%= @product.price %></p>
+
+
 <p>
   <strong>Name:</strong>
   <%= @product.name %>

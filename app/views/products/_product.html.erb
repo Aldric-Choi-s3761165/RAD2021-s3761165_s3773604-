@@ -1,0 +1,4 @@
+<article id="<%= dom_id(product) %>">
+  <div class="image-div"> <%= image_tag product.imagelink, height:'300' %></div>
+  <p><%= toggle_favorite(product) %> Item: <%= product.name %> Price: <%= product.price %> </p>
+</article>

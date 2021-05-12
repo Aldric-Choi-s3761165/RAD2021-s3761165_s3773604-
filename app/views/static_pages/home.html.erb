@@ -1,36 +1,34 @@
 <% provide(:title, "Home") %>
-<h1>Choi-Pham Clothing</h1>
-<p>This is the home page for RAD assigment.</p>
 
 <h2>Top Banner</h2>
-<p> <%= image_tag @product.imagelink, height:'300' %></p>
-<%= render 'product', product: @product %>
+<% if @product != nil %> 
+  <div class="item-tag"><%= render 'products/product', product: @product %></div>
+<% else %> 
+  <div class="item-tag">All products already saved.</div>
+<% end %>
 
 <h2>Popular</h2>
-<table>
-  <tbody>
-    <% @products.each do |p| %>
-      <% if p.popularity > 5 %> 
-      <td>
-        <p> <%= image_tag p.imagelink, height:'300' %></p>
-        <%= render 'product', product: p %>
-      </td>
-      <% end %>
+
+<div class="slickslide4" slick="">
+  <% @popular.each do |p| %>
+    <% if p.popularity > 5 %> 
+      <div class="item-tag"><%= render 'products/product', product: p %></div>
     <% end %>
-  </tbody> 
-</table> 
+  <% end %>
+</div>
 
 <h2>Collections</h2> 
 <table>
   <thead>
     <tr>
-      <th>Collection name</th>
+      <th> Collection </th>
       <th> Products </th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+    <td><%= link_to "All" , all_products_url %></td>
     <% @collections.each do |collection| %>
       <tr>
         <td><%= link_to collection.name , collection %></td>
@@ -41,3 +39,4 @@
 </table>
 
 <h2> Newsletter </h2>
+<%= render 'newsletters/new'%>

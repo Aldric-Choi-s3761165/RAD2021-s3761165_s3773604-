@@ -4,13 +4,15 @@ class FavoritesController < ApplicationController
     def create
     # Use the `favorite!` method to set the task's favorite boolean to true
         @product.favorite!
-        # redirect_to tasks_url
+        #comment
+        redirect_back(fallback_location: root_path)
     end
     
     def destroy
     # Use the `unfavorite!` method to set the task's favorite boolean to false
         @product.unfavorite!
-        # redirect_to tasks_url
+        #comment
+        redirect_back(fallback_location: root_path)
     end
     
     private
