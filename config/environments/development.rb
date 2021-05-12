@@ -34,19 +34,18 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   
   # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   ActionMailer::Base.delivery_method = :smtp
   
   ActionMailer::Base.smtp_settings = {
     :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
-    :password => '<SENDGRID_API_KEY>', # This is the secret sendgrid API key which was issued during API key creation
-    :domain => 'yourdomain.com',
+    :password => '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', # This is the secret sendgrid API key which was issued during API key creation
+    :domain => 'student.rmit.edu.au',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
