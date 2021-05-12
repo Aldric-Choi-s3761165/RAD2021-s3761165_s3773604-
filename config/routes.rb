@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :products
+  resources :orders
+  resources :carts
+  resources :products, param: :name
   resources :collections, param: :name
   resources :favorites, only: [:create, :destroy]
   resources :newsletters

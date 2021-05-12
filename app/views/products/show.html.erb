@@ -11,33 +11,6 @@
 </div>
 
 <h1> Product name: <%= @product.name%> </h1>
-<p><%= toggle_favorite(@product) %> Item: <%= @product.name %> Price: <%= @product.price %></p>
+<p>Item: <%= @product.name %> Price: <%= @product.price %></p>
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Popularity:</strong>
-  <%= @product.popularity %>
-</p>
-
-<p>
-  <strong>Imagelink:</strong>
-  <%= @product.imagelink %>
-</p>
-
-<p> 
-  <strong> Favorite: </strong > 
-  <%= @product.favorite %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= render 'orders/orderForm', order: @order %>

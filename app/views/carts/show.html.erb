@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<h1></h1>
+<ul>
+  <% @cart.orders.each do |order| %>
+    <li>Item: <%= order.product.name %>/ Price: <%= number_to_currency(order.product.price) %>/ Quantity: <%= order.quantity %>/ Total Price: <%= number_to_currency(order.product.price * order.quantity) %>
+    <!--# See lineItem section below for explanation of line_item links-->
+    <ul>
+      <li>
+        <%= link_to "Remove item", order_path(order), method: :delete %>
+      </li>
+    </ul>
+  <% end %>
+ </ul>

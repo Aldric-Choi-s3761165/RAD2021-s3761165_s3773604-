@@ -1,0 +1,42 @@
+<%= form_with(model: order, local: true) do |form| %>
+    <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.select :size, options_for_select(["S", "M", "L", "XL"]), :class => 'genForm_dropBox' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.select :color, options_for_select(["Blue", "Red", "Yellow", "Green"]), :class => 'genForm_dropBox' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.select :quantity, options_for_select(["1", "2", "3", "4", "5"]), :class => 'genForm_dropBox' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.hidden_field :product_id, value: @product.id %>
+    <%= @product.name %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :cart_id, value: "1" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Add to Cart" %>
+  </div>
+<% end %>
