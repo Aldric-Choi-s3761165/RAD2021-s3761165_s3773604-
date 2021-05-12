@@ -8,7 +8,7 @@ class NewslettersController < ApplicationController
     @newsletter = Newsletter.new(newsletter_params)
     if @newsletter.save
       NewsletterNotifierMailer.send_subscribe_email(@newsletter).deliver_now
-      redirect_to "/"
+      redirect_to '/newsletters/new'
     else
       loadhomepagedata
       render 'static_pages/home'
