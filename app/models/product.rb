@@ -12,9 +12,9 @@ class Product < ApplicationRecord
     #     Savedlist.all - self.savedlists
     # end
     
-    def to_param
-      name
-    end
+    # def to_param
+    #   name
+    # end
     
     def favorite!
         self.favorite = true

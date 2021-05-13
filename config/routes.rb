@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :carts
-  resources :products, param: :name
+  resources :products
   resources :collections, param: :name
   resources :favorites, only: [:create, :destroy]
   resources :newsletters
