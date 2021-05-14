@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
+  get 'customers/new'
+
   resources :orders
   resources :carts
   resources :products
   resources :collections, param: :name
   resources :favorites, only: [:create, :destroy]
   resources :newsletters
+  resources:customers
 
   get 'static_pages/home'
   
@@ -18,6 +23,13 @@ Rails.application.routes.draw do
   # get 'newsletters/new'
   post '/', to: 'newsletters#create'
   # get '/', to 'newsletter#new'
+  
+  get'/signup', to: 'customers#new'
+  post'/signup', to: 'customers#create'
+  
+  get    '/login',   to: 'sessions#new'   
+  post   '/login',   to: 'sessions#create'   
+  delete '/logout',  to: 'sessions#destroy' 
   
   get '/allproducts', to: 'products#products', as: 'all_products'
 

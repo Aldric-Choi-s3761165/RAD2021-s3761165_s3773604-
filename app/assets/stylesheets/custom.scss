@@ -143,3 +143,52 @@ footer ul li {
 hr.solid {
   border-top: 3px solid #bbb;
 }
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #7FB8EA;
+    width: 100%;
+    margin-bottom: 20px;
+    @include box_sizing(border_box);
+}
+
+input {
+    height: auto !important;
+}
+
+#error_explanation {
+    color: crimson;
+    ul {
+        color: crimson;
+        margin: 0 0 20px 0;
+    }
+}
+
+.field_with_errors {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
+}
+
+.checkbox{
+    margin-top:-10px;
+    margin-bottom:10px;
+    span{
+        margin-left:20px;
+        font-weight:normal;
+    }
+}
+
+#session_remember_me{
+    width:auto;
+    margin-left:0;
+}
+
+.customers {
+    list-style: none;margin: 0;
+    li {
+        overflow: auto;
+        padding: 10px 0;
+        border-bottom: 1px solid $gray-lighter;
+    }
+}
