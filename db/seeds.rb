@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-cart = Cart.create()
 
 collection1 = Collection.create(name: "men")
 collection2 = Collection.create(name: "women")

@@ -1,5 +1,9 @@
 class Customer < ApplicationRecord
     attr_accessor :remember_token
+    after_create do
+        Cart.create customer: self
+    end
+    has_one :cart
     
     validates :username, presence:true
     
@@ -12,7 +16,8 @@ class Customer < ApplicationRecord
     
     has_secure_password
     
-    validates:password, presence: true, length: { minimum: 6 }
+    validates:password, presence: true, length: { minimum: 8 }
+    validates:password, presence: true, length: { maximum: 20 }
     
     def Customer.digest(string)     
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost     

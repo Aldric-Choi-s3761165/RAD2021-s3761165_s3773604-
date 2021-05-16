@@ -22,10 +22,11 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
+    @cart = current_customer.id
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to '/carts/1', notice: "Order was successfully created." }
+        format.html { redirect_to "/carts/#{@cart}", notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -19,10 +19,10 @@ module SessionsHelper
         !current_customer.nil?
     end
     
-    def log_out     
+    def log_out
         forget(current_customer)
         session.delete(:customer_id)     
-        @current_customer= nil   
+        @current_customer= nil
     end
     
     def remember(customer)     

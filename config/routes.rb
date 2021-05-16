@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   
   # get 'newsletters/new'
   post '/', to: 'newsletters#create'
+  post 'products#show', to: 'orders#create'
   # get '/', to 'newsletter#new'
   
   get'/signup', to: 'customers#new'
