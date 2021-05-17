@@ -15,7 +15,9 @@ class SessionsController < ApplicationController
     end
   end
   
-  def destroy  
+  def destroy
+    @cart = Cart.find_by_customer_id(current_customer)
+    @cart.orders.delete_all
     log_out if logged_in?     
     redirect_to root_url   
   end
