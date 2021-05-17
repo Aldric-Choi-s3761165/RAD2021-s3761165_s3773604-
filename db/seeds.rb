@@ -28,3 +28,5 @@ collection2.products << product2
 product1.photos.create(image: 'https://img.ltwebstatic.com/images3_pi/2020/11/30/160670329606c3de9a050654c5037e5cc0522ba92e_thumbnail_900x.webp')
 product1.photos.create(image: 'https://img.ltwebstatic.com/images3_pi/2020/11/30/160670329606c3de9a050654c5037e5cc0522ba92e_thumbnail_900x.webp')
 product1.photos.create(image: 'https://img.ltwebstatic.com/images3_pi/2020/11/30/160670329606c3de9a050654c5037e5cc0522ba92e_thumbnail_900x.webp')
+
+Customer.create!(username:  "RAD",email: "rad2021rmit@gmail.com",password: "Rails2021",password_confirmation: "Rails2021")

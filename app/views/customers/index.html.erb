@@ -1,0 +1,10 @@
+<% provide(:title, 'All customers') %>
+<h1>All customers</h1>
+<ul class="customers">
+    <% @customers.each do |cus| %>
+    <li>
+    <%= gravatar_for cus, size: 40 %>
+    <%= link_to cus.username, cus%>
+    </li>
+    <% end %>
+</ul>
