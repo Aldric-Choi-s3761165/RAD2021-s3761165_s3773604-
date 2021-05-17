@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: %i[ show edit update destroy ]
-
+  # after_action :clear
+  
   # GET /carts or /carts.json
   def index
     @carts = Cart.all
@@ -8,6 +9,11 @@ class CartsController < ApplicationController
 
   # GET /carts/1 or /carts/1.json
   def show
+    @current_customer = current_customer
+    @total = 0
+    @cart.orders.each do |order|
+      @total = @total + (order.quantity * order.product.price)
+    end
   end
 
   # GET /carts/new
@@ -54,6 +60,11 @@ class CartsController < ApplicationController
       format.html { redirect_to carts_url, notice: "Cart was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+  
+  def clear
+    @cart = Cart.find_by_customer_id(current_customer)
+    @cart.orders.delete_all
   end
 
   private

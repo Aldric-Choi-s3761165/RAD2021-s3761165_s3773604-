@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy' 
   
   get '/allproducts', to: 'products#products', as: 'all_products'
+  
+  get '/auth/:provider/callback', to: 'sessions#omniauth_create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'application#hello'

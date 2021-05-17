@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Customer.create(username: "RAD", email: "rad2021rmit@gmail.com", password: "Rails2021", password_confirmation: "Rails2021")
+Customer.create(username: "Test", email: "test@test.com", password: "test1234", password_confirmation: "test1234")
 
 collection1 = Collection.create(name: "men")
 collection2 = Collection.create(name: "women")

@@ -1,13 +1,30 @@
 <p id="notice"><%= notice %></p>
-<h1></h1>
-<ul>
-  <% @cart.orders.each do |order| %>
-    <li>Item: <%= order.product.name %>/ Price: <%= number_to_currency(order.product.price) %>/ Quantity: <%= order.quantity %>/ Total Price: <%= number_to_currency(order.product.price * order.quantity) %>
-    <!--# See lineItem section below for explanation of line_item links-->
-    <ul>
-      <li>
-        <%= link_to "Remove item", order_path(order), method: :delete %>
-      </li>
-    </ul>
-  <% end %>
- </ul>
+<h1>Bag (<%= @cart.orders.count%>)</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>  </th>
+      <th> Item </th>
+      <th> Price </th>
+      <th> Quantity </th>
+      <th> Total Price </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.orders.each do |order| %>
+      <tr>
+        <td> <%= image_tag order.product.imagelink, height:'300' %> </td>
+        <td> <%= order.product.name%> </td>
+        <td> <%= number_to_currency(order.product.price) %> </td>
+        <td> <%= order.quantity %> </td>
+        <td> <%= number_to_currency(order.product.price * order.quantity) %> </td>
+        <td> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4> Sub Total: <%= @total%></h4>
+<!--<%= button_to 'Call Action', "/carts/#{@current_customer.id}", method: :clear, class: "btn btn-primary" %>-->

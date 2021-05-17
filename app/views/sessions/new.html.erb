@@ -16,6 +16,8 @@
             <% end %> 
             
             <%= f.submit "Log in", class: "btn btn-primary" %>
+            
+            <%= link_to "Sign in with Twitter", "/auth/twitter", class: "btn btn-primary" %>
         <% end %>
         
         <p>New user? <%= link_to "Sign up now!", signup_path%></p>

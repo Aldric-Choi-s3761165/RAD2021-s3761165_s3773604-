@@ -41,4 +41,15 @@ class Customer < ApplicationRecord
     def forget     
         update_attribute(:remember_digest, nil)   
     end
+    
+    # def self.find_or_create_from_auth_hash(auth_hash)
+    #     customer = where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create
+    #     customer.update(
+    #       username: auth_hash.info.nickname,
+    #       profile_image: auth_hash.info.image,
+    #       token: auth_hash.credentials.token,
+    #       secret: auth_hash.credentials.secret
+    #     )
+    #     customer
+    # end
 end
