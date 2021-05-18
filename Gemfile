@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'omniauth-twitter'
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'omniauth-twitter', '~> 1.4'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'		
 gem 'rails-ujs', '~> 0.1.0'
 gem 'jquery-slick-rails', '~> 1.9'

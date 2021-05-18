@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210514112950) do
+ActiveRecord::Schema.define(version: 20210517133515) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "customer_id"
+    t.integer "user_id"
     t.index ["customer_id"], name: "index_carts_on_customer_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -75,6 +77,17 @@ ActiveRecord::Schema.define(version: 20210514112950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "favorite", default: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "token"
+    t.string "secret"
+    t.string "profile_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

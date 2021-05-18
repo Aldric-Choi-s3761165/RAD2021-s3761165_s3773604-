@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'twitter_sessions/new'
+
   get 'sessions/new'
 
   get 'customers/new'
@@ -10,7 +12,8 @@ Rails.application.routes.draw do
   resources :collections, param: :name
   resources :favorites, only: [:create, :destroy]
   resources :newsletters
-  resources:customers
+  resources :customers
+  resources :users
 
   get 'static_pages/home'
   
@@ -34,7 +37,8 @@ Rails.application.routes.draw do
   
   get '/allproducts', to: 'products#products', as: 'all_products'
   
-  get '/auth/:provider/callback', to: 'sessions#omniauth_create'
+  get '/auth/:provider/callback', to: 'twitter_sessions#create'
+  delete '/logouttwitter', to: 'twitter_sessions#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'application#hello'
