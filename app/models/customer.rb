@@ -1,9 +1,10 @@
 class Customer < ApplicationRecord
     attr_accessor :remember_token
     after_create do
-        Cart.create customer: self
+        Cart.create(customer_id: self.id)
     end
     has_one :cart
+    self.table_name = "customers"
     
     validates :username, presence:true
     

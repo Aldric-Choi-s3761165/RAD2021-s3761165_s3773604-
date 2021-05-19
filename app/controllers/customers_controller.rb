@@ -9,7 +9,6 @@ class CustomersController < ApplicationController
   
   def create
     @customer = Customer.new(customer_params)
-    @cart = Cart.create(customer_id: @customer.id, user_id: 0)
     if @customer.save
       log_in @customer
       flash[:success] = "Welcome "  + @customer.username + " !"

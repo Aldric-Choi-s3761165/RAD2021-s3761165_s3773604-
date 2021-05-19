@@ -63,7 +63,7 @@ class CartsController < ApplicationController
   end
   
   def clear
-    @cart = Cart.find_by_customer_id(current_customer)
+    @cart = Cart.find_by_customer_id(current_customer) || Cart.find_by_user_id(current_user_twitter)
     @cart.orders.delete_all
   end
 
