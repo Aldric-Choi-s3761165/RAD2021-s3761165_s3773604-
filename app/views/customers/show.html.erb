@@ -4,10 +4,13 @@
     <%= @customer.username %>
     
     <% if logged_in? %>
-        <li><%= link_to "Pending Orders", "/carts/#{Cart.find_by_customer_id(current_customer.id).id}" %></li>
+      <li><%= link_to "Pending Orders", "/carts/#{Cart.find_by_customer_id(current_customer.id).id}" %></li>
     <% elsif current_user_twitter %>
       <li><%= link_to "Pending Orders", "/carts/#{Cart.find_by_user_id(current_user_twitter.id).id}" %></li>
     <% else %>
       <li><%= link_to "Pending Orders", login_path %></li>
     <% end %>
+
+    <li><%= link_to "Settings", edit_customer_path(current_customer) %> </li>
+    
 </h1>

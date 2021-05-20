@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
+    # @newsletter = Newsletter.all
   end
   
   def create
@@ -15,6 +16,20 @@ class CustomersController < ApplicationController
       redirect_to @customer
     else
       render 'new'
+    end
+  end
+  
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+  
+  def update
+    @customer = Customer.find(params[:id])
+    if @customer.update_attributes(customer_params)
+      flash[:success] = "Profile updated"
+      redirect_to @customer
+    else
+      render 'edit'
     end
   end
   

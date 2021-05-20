@@ -15,4 +15,5 @@ class ApplicationController < ActionController::Base
         @collections = Collection.all
         @popular = Product.order(popularity: :desc)
       end
+
 end
