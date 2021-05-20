@@ -1,4 +1,4 @@
 <article id="<%= dom_id(product) %>">
-  <div class="image-div"> <%= image_tag product.imagelink, height:'300' %></div>
+  <div class="image-div"> <%= link_to image_tag( product.imagelink, height:'300'),product %></div>
   <p><%= toggle_favorite(product) %> Item: <%= product.name %> Price: <%= number_to_currency(product.price) %> </p>
 </article>
