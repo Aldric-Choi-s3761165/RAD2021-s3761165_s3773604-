@@ -27,3 +27,9 @@
 </table>
 
 <h4> Sub Total: <%= @total%></h4>
+<% if logged_in? %>
+  <%= link_to 'Pay now', "/carts/#{Cart.find_by_customer_id(current_customer.id).id}", method: :clear, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to 'Pay now', "/carts/#{Cart.find_by_user_id(current_user_twitter.id).id}", method: :clear, class: "btn btn-primary" %>
+<% end %>
+<p id="notice"><%= notice %></p>

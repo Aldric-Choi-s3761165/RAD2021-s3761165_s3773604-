@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'twitter_sessions#create'
   delete '/logouttwitter', to: 'twitter_sessions#destroy'
   
-  post '/carts/:id/clear', to: 'carts#clear'
+  post '/carts/:id', to: 'carts#clear'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'application#hello'

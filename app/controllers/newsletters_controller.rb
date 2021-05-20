@@ -7,6 +7,7 @@ class NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
     if @newsletter.save
+      flash[:notice] = 'You are subscribed!, an email has been sent to your email address!'
       NewsletterNotifierMailer.send_subscribe_email(@newsletter).deliver_now
       redirect_to '/'
     else

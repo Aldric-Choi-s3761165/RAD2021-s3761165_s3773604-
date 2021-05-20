@@ -63,8 +63,10 @@ class CartsController < ApplicationController
   end
   
   def clear
-    @cart = Cart.find_by_user_id(current_user_twitter.id).orders.delete_all
-    @cart.orders.delete_all
+    Cart.find_by_customer_id(current_customer).orders.delete_all
+    # Cart.find_by_user_id(current_user_twitter).orders.delete_all
+    flash[:notice] = 'Successfully ordered'
+    redirect_back(fallback_location: cart_path)
   end
 
   private
