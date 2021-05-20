@@ -192,3 +192,9 @@ input {
         border-bottom: 1px solid $gray-lighter;
     }
 }
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
