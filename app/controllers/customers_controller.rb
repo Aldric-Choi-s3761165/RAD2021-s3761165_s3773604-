@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
-    # @newsletter = Newsletter.all
+    @newsletter = Newsletter.all
   end
   
   def create
@@ -31,6 +31,20 @@ class CustomersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def subscribe
+    @customer = Customer.find(params[:id])
+    @newsletter = Newsletter.find_by_email(@customer.email)
+    if @newsletter.subscribe == false
+      @newsletter.subscribe = true
+      flash[:notice] = 'You are subscribed'
+    elsif @newsletter.subscribe == true
+      @newsletter.subscribe = false
+      flash[:notice] = 'You are unsubscribed'
+    end
+    @newsletter.save
+    redirect_back(fallback_location: current_customer)
   end
   
   private 

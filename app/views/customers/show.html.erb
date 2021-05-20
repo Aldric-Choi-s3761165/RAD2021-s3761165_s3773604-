@@ -2,6 +2,7 @@
 <h1>
     <%= gravatar_for_customer @customer %>
     <%= @customer.username %>
+</h1>
     
     <% if logged_in? %>
       <li><%= link_to "Pending Orders", "/carts/#{Cart.find_by_customer_id(current_customer.id).id}" %></li>
@@ -10,7 +11,22 @@
     <% else %>
       <li><%= link_to "Pending Orders", login_path %></li>
     <% end %>
-
+    
     <li><%= link_to "Settings", edit_customer_path(current_customer) %> </li>
     
-</h1>
+    
+    <% if @newsletter.find_by_email(@customer.email) == nil %>
+        <% Newsletter.create(email: @customer.email)%>
+        <% if @newsletter.find_by_email(@customer.email).subscribe == false %>
+          <li><%= link_to "Click here Subscribe", current_customer, method: :subscribe %> </li>
+        <% elsif @newsletter.find_by_email(@customer.email).subscribe == true %>
+          <li><%= link_to "Click here to Unsubscribe", current_customer, method: :subscribe %> </li>
+        <% end %>
+    <% elsif @newsletter.find_by_email(@customer.email).subscribe == false %>
+        <li><%= link_to "Click here Subscribe", current_customer, method: :subscribe %> </li>
+    <% elsif @newsletter.find_by_email(@customer.email).subscribe == true %>
+        <li><%= link_to "Click here to Unsubscribe", current_customer, method: :subscribe %> </li>
+    <% end %>
+    <% puts @newsletter.find_by_email(@customer.email).subscribe %>
+    <p id="notice"><%= notice %></p>
+
