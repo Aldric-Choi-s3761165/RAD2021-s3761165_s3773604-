@@ -11,9 +11,7 @@
 
 <div class="slickslide4" slick="">
   <% @popular.each do |p| %>
-    <% if p.popularity > 5 %> 
       <div class="item-tag"><%= render 'products/product', product: p %></div>
-    <% end %>
   <% end %>
 </div>
 

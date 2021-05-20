@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
       @cart = Cart.find_by_user_id((@current_user_twitter ||= User.find(session[:user_id]) if session[:user_id]).id).id
     end
     # @cart = current_customer
+    @order.product.popularity = @order.product.popularity + 1
+    @order.product.save
 
     respond_to do |format|
       if @order.save

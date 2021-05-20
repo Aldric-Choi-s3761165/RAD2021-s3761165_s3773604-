@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20210517133515) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.integer "popularity"
+    t.integer "popularity", default: 0
     t.string "imagelink"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
