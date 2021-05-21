@@ -1,0 +1,7 @@
+Hi <%= @customer.email %>,
+    Someone request a reset password
+    
+    if this was you, click the link to reset your password. The link will expire in 15 minutes.
+<%=(@customer.reset_token)%> 
+<%= signup_url %>
+<!--(@customer.reset_token)-->

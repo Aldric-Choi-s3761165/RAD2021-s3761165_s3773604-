@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   get '/helpandsupport', to: 'static_pages#helpandsupport', as: 'static_pages_help_and_support'
   get '/savedlist', to: 'static_pages#savedlist', as: 'static_pages_saved_list'
   
+   
+  get 'password/reset',to: 'password_resets#new'
+  post 'password/reset',to: 'password_resets#create'
+  get 'password/reset/edit',to: 'password_resets#edit'
+  patch 'password/reset/edit',to: 'password_resets#update'
+
+  
   # get '/signup', to: 'newsletters#new'
   # post '/signup', to: 'newsletter#create'
   
