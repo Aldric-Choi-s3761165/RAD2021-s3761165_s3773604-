@@ -26,10 +26,8 @@ class Customer < ApplicationRecord
     end
     
     def send_password_reset
-        begin
-            self[:reset_token]=  Customer.new_token
-        end while Customer.exists?(:reset_token => self[:reset_token])
-        self.password_reset_sent_at = Time.zone.now
+        update_attribute(:reset_token,Customer.new_token)
+        update_attribute(:password_reset_sent_at, Time.zone.now)
         PasswordMailer.reset(self).deliver
     end
     
