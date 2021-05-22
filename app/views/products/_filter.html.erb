@@ -1,19 +1,31 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
 <%= form_with url: "/filter", method: :get do |f| %>
 
-    <%= f.check_box :all %>
-    <%= f.label :all, "all" %>
+    <%= f.label :all, class: "checkbox inline" do %>         
+        <%= f.check_box :all, class:"all" %>         
+        <span>All</span>       
+    <% end %> 
     
-    <%= f.check_box :men %>
-    <%= f.label :men, "men" %>
+    <%= f.label :men, class: "checkbox inline" do %>         
+        <%= f.check_box :men, class:"other"%>         
+        <span>Men</span>       
+    <% end %> 
     
-    <%= f.check_box :women %>
-    <%= f.label :women, "women" %>
+    <%= f.label :women, class: "checkbox inline" do %>         
+        <%= f.check_box :women %>         
+        <span>Women</span>       
+    <% end %> 
     
-    <%= f.check_box :kids %>
-    <%= f.label :kids, "kids" %>
+    <%= f.label :kids, class: "checkbox inline" do %>         
+        <%= f.check_box :kids %>         
+        <span>Kids</span>       
+    <% end %> 
     
-    <%= f.check_box :newarrival %>
-    <%= f.label :newarrival, "new-arrival" %>
+    <%= f.label :newarrival, class: "checkbox inline" do %>         
+        <%= f.check_box :newarrival %>         
+        <span>New-arrival</span>       
+    <% end %> 
     
     <%= f.label :color %>
     <%= f.select :color, options_for_select(["Blue", "Red", "Yellow", "Green"]), :class => 'genForm_dropBox', class: 'form-control' %>
@@ -23,3 +35,5 @@
     
     <%= f.submit "Filter"%>
 <% end %>
+ </div>
+</div>
