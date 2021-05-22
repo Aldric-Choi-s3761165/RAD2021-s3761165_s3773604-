@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :size %>
-    <%= form.select :size, options_for_select(["S", "M", "L", "XL"]), :class => 'genForm_dropBox' %>
+    <%= form.select :size, options_for_select(["S", "M", "L", "XL"], @product.size), :class => 'genForm_dropBox' %>
   </div>
 
   <div class="field">
     <%= form.label :color %>
-    <%= form.select :color, options_for_select(["Blue", "Red", "Yellow", "Green"]), :class => 'genForm_dropBox' %>
+    <%= form.select :color, options_for_select(["Blue", "Red", "Yellow", "Green"], @product.color), :class => 'genForm_dropBox' %>
   </div>
 
   <div class="field">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210517133515) do
+ActiveRecord::Schema.define(version: 20210521051012) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20210517133515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "favorite", default: false
+    t.string "color", default: "Blue"
+    t.string "size", default: "S"
+    t.string "collection_name", default: ""
   end
 
   create_table "users", force: :cascade do |t|

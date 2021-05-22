@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   get '/helpandsupport', to: 'static_pages#helpandsupport', as: 'static_pages_help_and_support'
   get '/savedlist', to: 'static_pages#savedlist', as: 'static_pages_saved_list'
+  get '/filter', to: 'static_pages#filter', as: 'static_pages_filter'
   
   # get '/signup', to: 'newsletters#new'
   # post '/signup', to: 'newsletter#create'
