@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20210521051012) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.string "reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   create_table "newsletters", force: :cascade do |t|

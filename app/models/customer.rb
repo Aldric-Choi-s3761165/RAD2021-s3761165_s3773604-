@@ -17,12 +17,18 @@ class Customer < ApplicationRecord
     
     has_secure_password
     
-    validates:password, presence: true, length: { minimum: 8 }
-    validates:password, presence: true, length: { maximum: 20 }
+    validates:password, presence: true, length: { minimum: 8 }, allow_nil: true
+    validates:password, presence: true, length: { maximum: 20 }, allow_nil: true
     
     def Customer.digest(string)     
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost     
         BCrypt::Password.create(string, cost: cost)   
+    end
+    
+    def send_password_reset
+        update_attribute(:reset_token,Customer.new_token)
+        update_attribute(:password_reset_sent_at, Time.zone.now)
+        PasswordMailer.reset(self).deliver
     end
     
     def Customer.new_token     

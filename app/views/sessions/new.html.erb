@@ -18,6 +18,7 @@
             <%= f.submit "Log in", class: "btn btn-primary" %>
             
             <%= link_to "Sign in with Twitter", "/auth/twitter", method: :post, class: "btn btn-primary" %>
+            <%= link_to "Forgot your password?", password_reset_path %>
         <% end %>
         
         <p>New user? <%= link_to "Sign up now!", signup_path%></p>
