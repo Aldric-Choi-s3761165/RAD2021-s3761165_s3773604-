@@ -10,7 +10,7 @@ class PasswordResetsController < ApplicationController
             
             redirect_to password_reset_path, notice:" We have sent a reset password link to your email"
         else
-              redirect_to password_reset_path, alert:"Account not found"
+            redirect_to password_reset_path, alert:"Account not found"
         end
         
          
@@ -20,7 +20,7 @@ class PasswordResetsController < ApplicationController
         customer = Customer.find_by_reset_token!(params[:token])
         
         if customer.password_reset_sent_at < 15.minutes.ago
-             redirect_to password_reset_path, alert:" link has expired"
+            redirect_to password_reset_path, alert:" link has expired"
         else
             log_in customer
             remember customer
