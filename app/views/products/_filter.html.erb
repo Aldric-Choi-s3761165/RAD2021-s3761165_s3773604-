@@ -10,13 +10,10 @@
     <%= f.label :women, "women" %>
     
     <%= f.check_box :kids %>
-    <%= f.label :kdis, "kids" %>
+    <%= f.label :kids, "kids" %>
     
     <%= f.check_box :newarrival %>
     <%= f.label :newarrival, "new-arrival" %>
-    
-    <%= f.label :collection_name %>
-    <%= f.select :collection_name, options_from_collection_for_select(Collection.all, :id, :name), :class => 'genForm_dropBox', class: 'form-control' %>
     
     <%= f.label :color %>
     <%= f.select :color, options_for_select(["Blue", "Red", "Yellow", "Green"]), :class => 'genForm_dropBox', class: 'form-control' %>
