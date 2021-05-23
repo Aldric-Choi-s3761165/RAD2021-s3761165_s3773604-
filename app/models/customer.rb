@@ -17,8 +17,7 @@ class Customer < ApplicationRecord
     
     has_secure_password
     
-    validates:password, presence: true, length: { minimum: 8 }, allow_nil: true
-    validates:password, presence: true, length: { maximum: 20 }, allow_nil: true
+    validates:password, presence: true, length: { minimum: 8,maximum: 20 }, format:{:with => /\A[A-Za-z0-9.&]*\z/i},allow_nil: true
     
     def Customer.digest(string)     
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost     
