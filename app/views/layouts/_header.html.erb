@@ -18,6 +18,10 @@
                         <a href="/helpandsupport">Help and Support</a>
                     </div>
                 </div>
+                
+                   
+                    
+                
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if logged_in? %>
@@ -29,6 +33,7 @@
                   <li><%= link_to "Cart", login_path %></li>
                 <% end %>
                   <li><%= link_to "Filter", static_pages_filter_url %></li>
+                  <li><a href="search"><span class="glyphicon glyphicon-search" style="color:white;"></span></a></li> 
             </ul>
         </nav>
     </div>

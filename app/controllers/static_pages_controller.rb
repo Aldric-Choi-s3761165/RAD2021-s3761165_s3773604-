@@ -13,6 +13,13 @@ class StaticPagesController < ApplicationController
     @products = Product.all
   end
   
+  def search
+    if params[:q]
+    @products = Product.where("name LIKE ?", "%" + params[:q] + "%")
+    end
+  end
+  
+  
   def filter
     @collections = Collection.all
     @products = Product.all
