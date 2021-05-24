@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+<h1>Bag (<%= @cart.orders.count%>)</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>  </th>
+      <th> Item </th>
+      <th> Price </th>
+      <th> Quantity </th>
+      <th> Total Price </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.orders.each do |order| %>
+      <tr>
+        <td> <%= image_tag order.product.imagelink, height:'300' %> </td>
+        <td> <%= order.product.name%> </td>
+        <td> <%= number_to_currency(order.product.price) %> </td>
+        <td> <%= order.quantity %> </td>
+        <td> <%= number_to_currency(order.product.price * order.quantity) %> </td>
+        <td> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4> Sub Total: <%= @total%></h4>
+<% if logged_in? %>
+  <%= link_to 'Pay now', "/carts/#{Cart.find_by_customer_id(current_customer.id).id}", method: :clear, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to 'Pay now', "/carts/#{Cart.find_by_user_id(current_user_twitter.id).id}", method: :clear, class: "btn btn-primary" %>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+
+<!--try to do the pop out rating-->
+<!--<script language="JavaScript">-->
+<!--$('#myForm').on('click', function(e){-->
+<!--  var bool = true;-->
+<!--  if(bool){-->
+<!--  $('#myModal').modal('show');-->
+<!--  e.preventDefault();-->
+<!--  bool = false-->
+<!--  }-->
+<!--});-->
+<!--</script>-->
+
+
+<!--<div class="modal fade" tabindex="-1" role="dialog" id="myModal">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--        <h4 class="modal-title">Rate us</h4>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <p>Rate your experiencce with this app&hellip;</p>-->
+<!--      </div>-->
+<!--       <div class="star-widget">-->
+<!--      <input type="radio" name="rate" id="rate-5">-->
+<!--      <label for="rate-5" class="fas fa-star"></label>-->
+<!--      <input type="radio" name="rate" id="rate-4">-->
+<!--      <label for="rate-4" class="fas fa-star"></label>-->
+<!--      <input type="radio" name="rate" id="rate-3">-->
+<!--      <label for="rate-3" class="fas fa-star"></label>-->
+<!--      <input type="radio" name="rate" id="rate-2">-->
+<!--      <label for="rate-2" class="fas fa-star"></label>-->
+<!--      <input type="radio" name="rate" id="rate-1">-->
+<!--      <label for="rate-1" class="fas fa-star"></label>-->
+<!--        </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-primary">Submit</button>-->
+<!--      </div>-->
+<!--    </div><!-- /.modal-content -->-->
+<!--  </div><!-- /.modal-dialog -->-->
+<!--</div><!-- /.modal -->-->
