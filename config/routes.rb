@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/savedlist', to: 'static_pages#savedlist', as: 'static_pages_saved_list'
   get '/filter', to: 'static_pages#filter', as: 'static_pages_filter'
   get '/search', to: 'static_pages#search', as: 'static_pages_search'
-
+  get '/scan', to: 'static_pages#scan', as: 'static_pages_scan'
 
   get 'password/reset',to: 'password_resets#new'
   post 'password/reset',to: 'password_resets#create'

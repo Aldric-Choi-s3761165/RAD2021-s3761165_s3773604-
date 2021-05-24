@@ -5,14 +5,16 @@
 </h1>
     
     <% if logged_in? %>
+      <li><%= link_to "Log out", logout_path, method: :delete %></li>
       <li><%= link_to "Pending Orders", "/carts/#{Cart.find_by_customer_id(current_customer.id).id}" %></li>
     <% elsif current_user_twitter %>
+      <li><%= link_to 'Log out', '/logouttwitter', method: :delete %></li>
       <li><%= link_to "Pending Orders", "/carts/#{Cart.find_by_user_id(current_user_twitter.id).id}" %></li>
     <% else %>
       <li><%= link_to "Pending Orders", login_path %></li>
     <% end %>
     
-    <li><%= link_to "Settings", edit_customer_path(current_customer) %> </li>
+    <li><%= link_to "Update Login Details", edit_customer_path(current_customer) %> </li>
     
     
     <% if @newsletter.find_by_email(@customer.email) == nil %>
