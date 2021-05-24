@@ -1,0 +1,41 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <nav>
+            <ul class="nav navbar-nav navbar-left">
+                <div class="dropdown">
+                    <button class="dropbtn"> <%= image_tag("menu.svg", height:'24' ) %>
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <p> Shop </p>
+                        <a href="/collections/men">Men</a>
+                        <a href="/collections/women">Women</a>
+                        <a href="/collections/kids">Kids</a>
+                        <a href="/collections/new-arrival">New-arrival</a>
+                        <hr class="solid">
+                        <a href="/savedlist">Saved List</a>
+                        <hr class="solid">
+                        <a href="/helpandsupport">Help and Support</a>
+                    </div>
+                </div>
+                
+                   
+                    
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <% if logged_in? %>
+                    <li><%= link_to "Cart", "/carts/#{Cart.find_by_customer_id(current_customer.id).id}" %></li>
+                    
+                <% elsif current_user_twitter %>
+                  <li><%= link_to "Cart", "/carts/#{Cart.find_by_user_id(current_user_twitter.id).id}" %></li>
+                <% else %>
+                  <li><%= link_to "Cart", login_path %></li>
+                <% end %>
+                  <li><%= link_to "Filter", static_pages_filter_url %></li>
+                  <li><a href="search"><span class="glyphicon glyphicon-search" style="color:white;"></span></a></li> 
+            </ul>
+        </nav>
+    </div>
+</header> 
+

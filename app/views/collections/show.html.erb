@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1> Collection for <%= @collection.name%> </h1> 
+  <% if @collection.products.count> 0 %> 
+    <table> 
+      <tbody> <% @collection.products.each do |product| %> 
+        <td>
+          <%= render 'products/product', product: product %>
+        </td>
+        <% end %>
+      </tbody> 
+    </table> 
+  <% else %> 
+    <p> No products in this collection. </p> 
+  <% end %>
+</p>

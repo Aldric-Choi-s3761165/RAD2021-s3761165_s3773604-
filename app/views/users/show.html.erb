@@ -1,0 +1,14 @@
+<% provide(:title, @user.name) %>
+<h1>
+    <%= gravatar_for_user @user %>
+    <%= @user.name %>
+    
+    <% if logged_in? %>
+        <p><%= link_to "Pending Orders", "/carts/#{Cart.find_by_customer_id(current_customer.id).id}" %></p>
+    <% elsif current_user_twitter %>
+      <p><%= link_to "Pending Orders", "/carts/#{Cart.find_by_user_id(current_user_twitter.id).id}" %></p>
+    <% else %>
+      <p><%= link_to "Pending Orders", login_path %></p>
+    <% end %>
+    
+</h1>

@@ -1,0 +1,44 @@
+<% provide(:title, "Home") %>
+
+<h2>Top Banner</h2>
+<% if @product != nil %> 
+  <div class="item-tag"><%= render 'products/product', product: @product %></div>
+<% else %> 
+  <div class="item-tag">All products already saved.</div>
+<% end %>
+
+<h2>Popular</h2>
+
+<div class="slickslide4" slick="">
+  <% @popular.each do |p| %>
+      <div class="item-tag"><%= render 'products/product', product: p %></div>
+  <% end %>
+</div>
+
+<h2>Collections</h2> 
+<table>
+  <thead>
+    <tr>
+      <th> Collection </th>
+      <th> Products </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <td><%= link_to "All" , all_products_url %></td>
+    <% @collections.each do |collection| %>
+      <tr>
+        <td><%= link_to collection.name , collection %></td>
+        <td> <%= collection.products.count%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2> Newsletter </h2>
+<p id="notice"><%= notice %></p>
+<%= render 'newsletters/new'%>
+
+<a>up</a>
+<a>up</a>
